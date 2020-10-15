@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>allEmployee</title>
+
+    <meta name="description" content="Wypozyczalnia pojazdow elektrycznych" />
+    <meta name="keywords" content="hulajnogi, samochody, wypozyczalnia, deskorolki " />
+
+    <link href="style/styleAllCustomer.css" rel="stylesheet" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href="css/fontello.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="logo">
+            <img src="img/scooter.png"  />
+            <span style="color: #808080"> Rent</span>App.com
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+    <div class="nav">
+        <ol>
+            <li><a href="rentAppPage.html">Main Page</a></li>
+            <li><a href="allScooter.html">Scooters</a>
+                <ul>
+                    <li><a href="addVehicle.html">Add Vehicle</a> </li>
+                    <li><a href="getVehicle.html">Get Vehicle </a> </li>
+                    <li><a href="updateVehicle.html">Update Vehicle</a> </li>
+                    <li><a href="removeVehicle.html">Remove Vehicle</a> </li>
+                    <li><a href="buy.html">Buy Vehicle</a> </li>
+                    <li><a href="rent.html">Rent Vehicle</a> </li>
+                </ul>
+            </li>
+            <li><a href="allCar.html">Cars</a>
+                <ul>
+                    <li><a href="addVehicle.html">Add Vehicle</a> </li>
+                    <li><a href="getVehicle.html">Get Vehicle</a> </li>
+                    <li><a href="updateVehicle.html">Update Vehicle</a> </li>
+                    <li><a href="removeVehicle.html">Remove Vehicle</a> </li>
+                    <li><a href="buy.html">Buy Vehicle</a> </li>
+                    <li><a href="rent.html">Rent Vehicle</a> </li>
+                </ul>
+            </li>
+            <li><a href="allBike.html">Bikes</a>
+                <ul>
+                    <li><a href="addVehicle.html">Add Vehicle</a> </li>
+                    <li><a href="getVehicle.html">Get Vehicle</a> </li>
+                    <li><a href="updateVehicle.html">Update Vehicle</a> </li>
+                    <li><a href="removeVehicle.html">Remove Vehicle</a> </li>
+                    <li><a href="buy.html">Buy Vehicle</a> </li>
+                    <li><a href="rent.html">Rent Vehicle</a> </li>
+                </ul>
+            </li>
+            <li><a href="allMotorBike.html">MotorBikes</a>
+                <ul>
+                    <li><a href="addVehicle.html">Add Vehicle</a> </li>
+                    <li><a href="getVehicle.html">Get Vehicle</a> </li>
+                    <li><a href="updateVehicle.html">Update Vehicle</a> </li>
+                    <li><a href="removeVehicle.html">Remove Vehicle</a> </li>
+                    <li><a href="buy.html">Buy Vehicle</a> </li>
+                    <li><a href="rent.html">Rent Vehicle</a> </li>
+                </ul>
+            </li>
+            <li><a href="allCustomer.html">Customers</a>
+                <ul>
+                    <li><a href="addCustomer.html">Add Customer</a> </li>
+                    <li><a href="getCustomer.html">Get Customer</a> </li>
+                    <li><a href="updateCustomer.html">Update Customer</a> </li>
+                    <li><a href="removeCustomer.html">Remove Customer</a> </li>
+                </ul>
+            </li>
+            <li><a href="allEmployee.html">Employees</a>
+                <ul>
+                    <li><a href="addEmployee.html">Add Employee</a> </li>
+                    <li><a href="getEmployee.html">Get Employee</a> </li>
+                    <li><a href="updateEmployee.html">Update Employee</a> </li>
+                    <li><a href="removeEmployee.html">Remove Employee</a> </li>
+                </ul>
+            </li>
+            <li><a href="loginAndRegistry.html">Log out</a>
+            </li>
+        </ol>
+    </div>
+    <div class="content">
+        <div class="form-box">
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" >All customers </button>
+            </div>
+            <div th:each="employee: ${allEmployee}">
+                <div th:text="'idEmployeer: '+${employee.idEmployee}"></div>
+                <div th:text="'name: '+${employee.name}"></div>
+                <div th:text="'surname: '+${employee.surname}"></div>
+                <div th:text="'pesel: '+${employee.pesel}"></div>
+                <div th:text="'phoneNumber: '+${employee.phoneNumber}"></div>
+                <div th:text="'email: '+${employee.email}"></div>
+                <div th:text="'idUserApp: '+${employee.idUserApp}"></div>
+                <div th:text="'jobPosition: '+${employee.jobPosition}"></div>
+            </div>
+        </div>
+    </div>
+    <div class="social">
+        <div class="socialdiv">
+            <div class="fb">
+                <a href=" https://www.facebook.com/"><i class="icon-facebook-squared"></i></a>
+            </div>
+            <div class="yt">
+                <a href="https://www.youtube.com/"><i class="icon-youtube-play"></i></a>
+            </div>
+            <div class="tw">
+                <a href="https://www.twitch.tv/"><i class="icon-twitch"></i></a>
+            </div>
+            <div class="am">
+                <a href="https://www.amazon.de/"><i class="icon-amazon"></i></a>
+
+            </div>
+            <div style="clear: both"> </div>
+        </div>
+    </div>
+    <div class="footer">RentApp.com &copy; 2020 Thank you for your visit</div>
+</div>
+<script src="jquery-1.11.3.min.js"></script>
+<script>
+
+    $(document).ready(function() {
+        var NavY = $('.nav').offset().top;
+
+        var stickyNav = function(){
+            var ScrollY = $(window).scrollTop();
+
+            if (ScrollY > NavY) {
+                $('.nav').addClass('sticky');
+            } else {
+                $('.nav').removeClass('sticky');
+            }
+        };
+
+        stickyNav();
+
+        $(window).scroll(function() {
+            stickyNav();
+        });
+    });
+
+</script>
+
+</body>
+</html>
