@@ -5,7 +5,8 @@ import pl.edu.wszib.model.UserApp;
 public interface IUserAppDao {
     void addUserApp(UserApp userApp);
 
-    UserApp getCustomer(int idUserApp);
+
+    UserApp getUserApp(int idUserApp);
 
     UserApp getUpdate(int idUserApp, UserApp userApp);
 

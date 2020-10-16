@@ -37,7 +37,7 @@ public class UserAppDAOImpl implements IUserAppDao {
         }
     }
     @Override
-    public UserApp getCustomer(int idUserApp){
+    public UserApp getUserApp(int idUserApp){
         Session session = this.sessionFactory.openSession();
         UserApp userApp =
                 (UserApp) session.createQuery("FROM pl.edu.wszib.model.UserApp WHERE idUserApp = " + idUserApp).uniqueResult();
